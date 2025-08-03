@@ -26,6 +26,17 @@ const theme = createTheme({
   },
 });
 
+export const metadata = {
+  title: '다움청년부 토크 질문',
+  description: '토크를 위한 질문 뽑기',
+  openGraph: {
+    title: '다움청년부 토크 질문',
+    description: '토크를 위한 질문 뽑기',
+    // You can add an image URL here if you have one
+    // images: ['https://example.com/og-image.png'], 
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
