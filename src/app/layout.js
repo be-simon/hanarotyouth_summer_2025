@@ -1,8 +1,7 @@
-'use client'
-
-import { AppBar, Button, Container, CssBaseline, ThemeProvider, Toolbar, Typography, createTheme } from '@mui/material'
+import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
+import ThemeRegistry from './ThemeRegistry';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,17 +12,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-    secondary: {
-      main: '#dc004e',
-    },
-  },
 });
 
 export const metadata = {
@@ -41,8 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <ThemeRegistry>
           <AppBar position="static">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -55,7 +42,7 @@ export default function RootLayout({ children }) {
           <Container component="main" sx={{ mt: 4, mb: 4 }}>
             {children}
           </Container>
-        </ThemeProvider>
+        </ThemeRegistry>
       </body>
     </html>
   );
